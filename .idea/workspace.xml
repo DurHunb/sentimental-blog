@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c06c1f8f-52e7-4cdd-b0f1-3e10d0a25dda" name="Changes" comment="hello world" />
+    <list default="true" id="792e0dab-ab4b-4ff8-9627-dc3648390e0b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/emo-blog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/conf/conf.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/conf/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/conf/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routers/home.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routers/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/routers/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/util/app/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/util/home/version.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello.go" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,13 +45,16 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProjectId" id="2EieWXWnBs8RikHNbE6FXBucJDm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2FS8DCoSsUaKqqEHmQCW8uFgHdB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -40,21 +64,31 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Practice\emotional-blog\internal\util" />
+      <recent name="D:\Practice\emotional-blog\internal\routers" />
+      <recent name="D:\Practice\emotional-blog\internal\service" />
+      <recent name="D:\Practice\emotional-blog\internal" />
+      <recent name="D:\Practice\emotional-blog\internal\routers\api" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="go build hello.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="emotional-blog" />
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="emo-blog" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
+      <package value="github/durhunb/emotional-blog" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/hello.go" />
+      <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build hello.go" />
+        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -72,10 +106,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hello world" />
-    <option name="LAST_COMMIT_MESSAGE" value="hello world" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

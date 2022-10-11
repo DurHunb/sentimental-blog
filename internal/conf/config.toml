@@ -1,0 +1,20 @@
+
+# This is a toml
+
+
+[Server]
+    RunMode = "debug"
+    HttpIp = "127.0.0.1"
+    HttpPort = "8888"
+    ReadTimeout = 10000
+    WriteTimeout = 10000
+
+[MySQl]
+    username = "myself"
+    password = "MyPass@123"
+    Host = "124.221.144.73"
+    Port = 3306
+    DBname = "emo_blog"
+# 	ParseTime
+# 	MaxIdleConns
+# 	MaxOpenConns
