@@ -5,6 +5,7 @@ import "fmt"
 var (
 	ServerSetting *ServerSettings
 	MySQLSetting  *MySQLSettingS
+	JwtSetting    *JwtSettings
 )
 
 func setupSetting() error {
@@ -17,16 +18,17 @@ func setupSetting() error {
 	objects := map[string]interface{}{
 		"Server": &ServerSetting,
 		"MySQL":  &MySQLSetting,
+		"Jwt":    &JwtSetting,
 	}
 
 	if err = viperSetting.Unmarshal(objects); err != nil {
 		fmt.Printf("viper.Unmarshal(Conf) err %s", err)
 	}
 
-	fmt.Println("This is conf", objects)
-
-	fmt.Println("this is serverSetting", ServerSetting)
-	fmt.Println("this is MySQLSetting", MySQLSetting)
+	//查看设置配置是否有误
+	for name, setting := range objects {
+		fmt.Printf("这是 %s的设置:%v\n", name, setting)
+	}
 
 	return nil
 }

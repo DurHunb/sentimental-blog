@@ -4,27 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="792e0dab-ab4b-4ff8-9627-dc3648390e0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/emo-blog.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/conf/conf.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/conf/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/conf/setting.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/model/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/routers/home.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/routers/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/routers/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/util/app/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/util/home/version.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
+    <list default="true" id="792e0dab-ab4b-4ff8-9627-dc3648390e0b" name="Changes" comment="完成version、family的接口编写，完成路由login的编写">
+      <change afterPath="$PROJECT_DIR$/internal/model/model.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/conf/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/internal/conf/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/conf/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/conf/setting.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/util/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/util/app/app.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +30,9 @@
   <component name="GOROOT" url="file://C:/Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
@@ -110,6 +102,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="完成version、family的接口编写，完成路由login的编写" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成version、family的接口编写，完成路由login的编写" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

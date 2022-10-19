@@ -10,11 +10,17 @@
     WriteTimeout = 10000
 
 [MySQl]
-    username = "myself"
-    password = "MyPass@123"
+    Username = "myself"
+    Password = "MyPass@123"
     Host = "124.221.144.73"
     Port = 3306
     DBname = "emo_blog"
 # 	ParseTime
 # 	MaxIdleConns
 # 	MaxOpenConns
+
+# token 加密
+[Jwt]
+    Secret = "20221020adc4fe394c66345ebe501b2f26"
+    Issuer = "Ryan"
+    ExpireTime = 86400 #单位s

@@ -31,6 +31,15 @@ type MySQLSettingS struct {
 	//MaxOpenConns int
 }
 
+type JwtSettings struct {
+	//密钥
+	Secret string
+	//token签发者
+	Issuer string
+	//有效时间
+	ExpireTime time.Duration
+}
+
 // InitSetting 初始化viper，配置toml文件
 func InitSetting() (*ViperSetting, error) {
 

@@ -1,13 +1,22 @@
 package app
 
 import (
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"github/durhunb/emo-blog/internal/conf"
 	"github/durhunb/emo-blog/internal/model"
 	"net/http"
+	"time"
 )
 
 type Response struct {
 	Ctx *gin.Context
+}
+
+type Claims struct {
+	UID      int64  `json:"uid"`
+	Username string `json:"username"`
+	jwt.StandardClaims
 }
 
 func NewResponse(ctx *gin.Context) *Response {
@@ -45,7 +54,25 @@ func (r *Response) ToErrorResponse(err error) {
 	r.Ctx.JSON(http.StatusInternalServerError, data)
 }
 
-func GenerateToken(user *model.User) (string, error) {
-	//todo
-	return "", nil
+func GenerateToken(User *model.User) (string, error) {
+	nowTime := time.Now()
+
+	// 过期时间
+	expireTime := nowTime.Add(conf.JwtSetting.ExpireTime)
+
+	claims := Claims{
+		UID:      User.ID,
+		Username: User.Username,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: expireTime.Unix(),
+			Issuer:    conf.JwtSetting.Issuer,
+		},
+	}
+	//根据 Claims 结构体创建 Token 实例
+	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+
+	//根据传入的空接口类型参数 key，返回完整的签名令牌
+	//如果此时不转成byte，之后函数包内部也会转的
+	token, err := tokenClaims.SignedString([]byte(conf.JwtSetting.Secret))
+	return token, err
 }
