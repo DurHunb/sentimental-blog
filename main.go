@@ -37,28 +37,34 @@ func (s *suites) Set(value string) error {
 //}
 
 func init() {
-	//flagParse()
+
+	//初始化数据库、服务器等配置
+	err := conf.Init()
+	if err != nil {
+		return
+	}
 
 	// 初始化服务
-	service.Initialize()
+	service.Initialize(conf.Conf)
+
 }
 
 func main() {
-	gin.SetMode(conf.ServerSetting.RunMode)
+	gin.SetMode(conf.Conf.Sever.RunMode)
 
 	//路由配置
 	router := routers.NewRouter()
 
 	s := &http.Server{
-		Addr:           conf.ServerSetting.HttpIp + ":" + conf.ServerSetting.HttpPort,
+		Addr:           conf.Conf.Sever.HttpIp + ":" + conf.Conf.Sever.HttpPort,
 		Handler:        router,
-		ReadTimeout:    conf.ServerSetting.ReadTimeout,
-		WriteTimeout:   conf.ServerSetting.WriteTimeout,
+		ReadTimeout:    conf.Conf.Sever.ReadTimeout,
+		WriteTimeout:   conf.Conf.Sever.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	fmt.Fprintf(os.Stdout, "LiuLi service listen on %s\n",
-		fmt.Sprintf("http://%s:%s", conf.ServerSetting.HttpIp, conf.ServerSetting.HttpPort),
+	fmt.Fprintf(os.Stdout, "emo-blog service listen on %s\n",
+		fmt.Sprintf("http://%s:%s", conf.Conf.Sever.HttpIp, conf.Conf.Sever.HttpPort),
 	)
 
 	if err := s.ListenAndServe(); err != nil {

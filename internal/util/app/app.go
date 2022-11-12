@@ -58,14 +58,14 @@ func GenerateToken(User *model.User) (string, error) {
 	nowTime := time.Now()
 
 	// 过期时间
-	expireTime := nowTime.Add(conf.JwtSetting.ExpireTime)
+	expireTime := nowTime.Add(conf.Conf.JWT.ExpireTime)
 
 	claims := Claims{
 		UID:      User.ID,
 		Username: User.Username,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: expireTime.Unix(),
-			Issuer:    conf.JwtSetting.Issuer,
+			Issuer:    conf.Conf.JWT.Issuer,
 		},
 	}
 	//根据 Claims 结构体创建 Token 实例
@@ -73,6 +73,6 @@ func GenerateToken(User *model.User) (string, error) {
 
 	//根据传入的空接口类型参数 key，返回完整的签名令牌
 	//如果此时不转成byte，之后函数包内部也会转的
-	token, err := tokenClaims.SignedString([]byte(conf.JwtSetting.Secret))
+	token, err := tokenClaims.SignedString([]byte(conf.Conf.JWT.Secret))
 	return token, err
 }

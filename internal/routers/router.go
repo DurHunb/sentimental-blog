@@ -30,7 +30,7 @@ func NewRouter() *gin.Engine {
 	r.POST("/auth/login", Login)
 
 	// 用户注册
-	//r.POST("/auth/register", Register)
+	r.POST("/auth/register", Register)
 
 	// 获取验证码
 	//r.GET("/captcha", GetCaptcha)

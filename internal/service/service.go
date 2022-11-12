@@ -1,12 +1,23 @@
 package service
 
-import "github/durhunb/emo-blog/internal/conf"
+import (
+	"github/durhunb/emo-blog/internal/conf"
+	"github/durhunb/emo-blog/internal/dao"
+)
 
-func Initialize() {
+type Service struct {
+	config *conf.Config
+	dao    *dao.Dao
+}
 
-	// 初始化数据库、服务器等配置
-	conf.Initialize()
+// svc 服务的集合
+var svc *Service
 
-	//todo
+func Initialize(config *conf.Config) {
 
+	svc = &Service{
+		config: config,
+		dao:    dao.New(config)}
+
+	return
 }

@@ -1,42 +1,28 @@
 package conf
 
-import "fmt"
-
-var (
-	ServerSetting *ServerSettings
-	MySQLSetting  *MySQLSettingS
-	JwtSetting    *JwtSettings
+import (
+	"fmt"
+	"github.com/BurntSushi/toml"
 )
 
-func setupSetting() error {
-	viperSetting, err := InitSetting()
+type Config struct {
+	Sever *ServerSettings `toml:"server"`
+	DB    *MySQLSettingS  `toml:"mysql"`
+	JWT   *JwtSettings    `toml:"jwt"`
+}
 
-	if err != nil {
+var Conf *Config
+
+func Init() (err error) {
+
+	filePath := "internal/conf/config.toml"
+	if _, err := toml.DecodeFile(filePath, &Conf); err != nil {
 		return err
 	}
 
-	objects := map[string]interface{}{
-		"Server": &ServerSetting,
-		"MySQL":  &MySQLSetting,
-		"Jwt":    &JwtSetting,
-	}
-
-	if err = viperSetting.Unmarshal(objects); err != nil {
-		fmt.Printf("viper.Unmarshal(Conf) err %s", err)
-	}
-
-	//查看设置配置是否有误
-	for name, setting := range objects {
-		fmt.Printf("这是 %s的设置:%v\n", name, setting)
-	}
+	//查看配置
+	fmt.Printf("这是 %v的设置:\n", Conf.DB)
 
 	return nil
-}
-
-func Initialize() {
-	err := setupSetting()
-	if err != nil {
-		return
-	}
 
 }

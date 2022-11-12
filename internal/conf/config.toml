@@ -2,14 +2,14 @@
 # This is a toml
 
 
-[Server]
+[server]
     RunMode = "debug"
     HttpIp = "127.0.0.1"
     HttpPort = "8888"
     ReadTimeout = 10000
     WriteTimeout = 10000
 
-[MySQl]
+[mysql]
     Username = "myself"
     Password = "MyPass@123"
     Host = "124.221.144.73"
@@ -20,7 +20,7 @@
 # 	MaxOpenConns
 
 # token 加密
-[Jwt]
+[jwt]
     Secret = "20221020adc4fe394c66345ebe501b2f26"
     Issuer = "Ryan"
     ExpireTime = 86400 #单位s
