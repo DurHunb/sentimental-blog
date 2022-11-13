@@ -2,6 +2,8 @@ package dao
 
 import (
 	"database/sql"
+	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/sirupsen/logrus"
 	"github/durhunb/emo-blog/internal/conf"
 	"os"
@@ -22,7 +24,11 @@ func New(config *conf.Config) (d *Dao) {
 // DBInit 初始化mysql数据库
 func DBInit(config *conf.Config) (Db *sql.DB) {
 	//todo
-	Db, err := sql.Open("mysql", "root:123456@tcp(localhost:3306)/test")
+
+	database := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
+		config.DB.UserName, config.DB.Password, config.DB.Host, config.DB.Port, config.DB.DBName)
+
+	Db, err := sql.Open("mysql", database)
 	if err != nil {
 		logrus.Errorf("Open mysql error:", err)
 		os.Exit(-1)

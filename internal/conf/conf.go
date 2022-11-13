@@ -21,7 +21,7 @@ func Init() (err error) {
 	}
 
 	//查看配置
-	fmt.Printf("这是 %v的设置:\n", Conf.DB)
+	fmt.Printf("这是 %v的设置:\n", Conf.Sever)
 
 	return nil
 
