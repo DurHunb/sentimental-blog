@@ -18,7 +18,7 @@ func Login(ctx *gin.Context) {
 		return
 	}
 
-	user, err := service.DoLogin(ctx, &param)
+	user, err := service.DoLogin(param.Username, param.Password)
 	if err != nil {
 		logrus.Errorf("登录功能异常 app.DoLogin err: %v", err)
 		response.ToErrorResponse(err)
@@ -48,5 +48,31 @@ func Register(ctx *gin.Context) {
 		response.ToErrorResponse(err)
 		return
 	}
+
+	err = service.CheckUsername(param.Username)
+	if err != nil {
+		logrus.Errorf("service.CheckUsername 不符合用户名命名规则,errs: %v", err)
+		response.ToErrorResponse(err)
+		return
+	}
+
+	err = service.CheckPassword(param.Password)
+	if err != nil {
+		logrus.Errorf("service.CheckPassword 不符合用户名命名规则,errs: %v", err)
+		response.ToErrorResponse(err)
+		return
+	}
+
+	_, err = service.DoRegister(param.Username, param.Password)
+
+	if err != nil {
+		logrus.Errorf("service.Register err: %v", err)
+		response.ToErrorResponse(err)
+		return
+	}
+
+	response.ToResponse(gin.H{
+		"message": "注册成功",
+	})
 
 }

@@ -2,7 +2,6 @@ package service
 
 import (
 	"errors"
-	"github.com/gin-gonic/gin"
 	"github/durhunb/emo-blog/internal/model"
 	"regexp"
 	"unicode/utf8"
@@ -19,13 +18,13 @@ type RegisterRequest struct {
 }
 
 //DoLogin 进行登录
-func DoLogin(ctx *gin.Context, param *AuthRequest) (*model.User, error) {
+func DoLogin(username string, password string) (*model.User, error) {
 	//todo
 	return nil, nil
 }
 
-// ValidUsername 验证用户
-func ValidUsername(username string) error {
+// CheckUsername 用户名规则检查
+func CheckUsername(username string) error {
 
 	// 用户名长度∈(3,12)
 	if utf8.RuneCountInString(username) < 3 || utf8.RuneCountInString(username) > 12 {
@@ -47,7 +46,19 @@ func ValidUsername(username string) error {
 	return nil
 }
 
-// CheckPassword 密码检查
+// CheckPassword 密码规则检查
 func CheckPassword(password string) error {
+	if utf8.RuneCountInString(password) < 6 || utf8.RuneCountInString(password) > 15 {
+		return errors.New("密码长度不得小于6位，不得大于15位")
+	}
+	if !regexp.MustCompile(`^[a-zA-Z0-9]+$`).MatchString(password) {
+		return errors.New("密码应仅支持数字和字母")
+	}
 	return nil
+}
+
+//DoRegister 进行注册
+func DoRegister(username string, password string) (*model.User, error) {
+	//todo
+	return nil, nil
 }
