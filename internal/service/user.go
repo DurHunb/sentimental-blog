@@ -2,7 +2,9 @@ package service
 
 import (
 	"errors"
+	"github.com/sirupsen/logrus"
 	"github/durhunb/emo-blog/internal/model"
+	"golang.org/x/crypto/bcrypt"
 	"regexp"
 	"unicode/utf8"
 )
@@ -19,7 +21,18 @@ type RegisterRequest struct {
 
 //DoLogin 进行登录
 func DoLogin(username string, password string) (*model.User, error) {
-	//todo
+	user, err := svc.dao.AccountDao.GetUserByUsername(username)
+	if err != nil {
+		logrus.Errorf("DoLogin 数据库用户名读取错误， err=%v", err)
+		return nil, err
+	}
+
+	// 密码验证
+	err = bcrypt.CompareHashAndPassword([]byte(user.Encrypted_password), []byte(password))
+	if err != nil {
+		return nil, errors.New("密码错误，请重试")
+	}
+
 	return nil, nil
 }
 
@@ -37,9 +50,9 @@ func CheckUsername(username string) error {
 	}
 
 	//重复检查
-	users, _ := svc.dao.GetUserByUsername(username)
+	user, _ := svc.dao.AccountDao.GetUserByUsername(username)
 
-	if len(users) > 0 {
+	if user.ID > 0 {
 		return errors.New("用户名已存在")
 	}
 
@@ -59,6 +72,23 @@ func CheckPassword(password string) error {
 
 //DoRegister 进行注册
 func DoRegister(username string, password string) (*model.User, error) {
-	//todo
+	hash_pwd, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost) //加密处理
+	if err != nil {
+		logrus.Errorf("DoRegister 密码加密失败 , err: %v", err)
+		return nil, err
+	}
+	user := &model.User{
+		Nickname:           username,
+		Username:           username,
+		Password:           password,
+		Encrypted_password: string(hash_pwd),
+		Status:             1,
+	}
+
+	err = svc.dao.AccountDao.CreatUser(user)
+	if err != nil {
+		return nil, err
+	}
+
 	return nil, nil
 }

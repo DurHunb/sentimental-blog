@@ -11,12 +11,19 @@ import (
 
 // 未来加上redis等
 type Dao struct {
+	Db         *sql.DB
+	AccountDao *AccountDao
+}
+
+type AccountDao struct {
 	Db *sql.DB
 }
 
 func New(config *conf.Config) (d *Dao) {
+	Db := DBInit(config)
 	d = &Dao{
-		Db: DBInit(config),
+		Db:         Db,
+		AccountDao: &AccountDao{Db: Db},
 	}
 	return
 }

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="792e0dab-ab4b-4ff8-9627-dc3648390e0b" name="Changes" comment="修改mysql连接方式">
+    <list default="true" id="792e0dab-ab4b-4ff8-9627-dc3648390e0b" name="Changes" comment="增加注册功能，待完善登录和注册细节">
+      <change afterPath="$PROJECT_DIR$/internal/model/article.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/comment.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/routers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/routers/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/dao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/dao/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dao/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +118,8 @@
     <MESSAGE value="完成token的生成" />
     <MESSAGE value="重构配置文件的使用和服务的集成方式，完成注册功能" />
     <MESSAGE value="修改mysql连接方式" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改mysql连接方式" />
+    <MESSAGE value="增加注册功能，待完善登录和注册细节" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加注册功能，待完善登录和注册细节" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
